@@ -132,7 +132,7 @@ const Index = () => {
                       </div>
                       <div className="flex items-start">
                         <div className="min-w-[100px] text-sm text-gray-600">21:40 - 22:00</div>
-                        <div className="text-gray-700">Обнимаемся, расходимся и пытаемся выжить следующим утром</div>
+                        <div className="text-gray-700">Обнимашки, расходимся и попытки выжить следующим утром</div>
                       </div>
                     </div>
                   </div>
@@ -177,7 +177,7 @@ const Index = () => {
                         <div className="flex items-start space-x-3">
                           <Ban className="h-5 w-5 text-red-500 flex-shrink-0 mt-1" />
                           <div className="space-y-2">
-                            <p className="text-gray-700">Пожалуйста, не дарите:</p>
+                            <p className="text-gray-700">Не рекомендуется дарить:</p>
                             <ul className="list-disc pl-5 text-gray-700 space-y-1">
                               <li>Декоративные предметы (модели, статуэтки, картины, текстиль)</li>
                               <li>Игрушки</li>
@@ -187,49 +187,6 @@ const Index = () => {
                         </div>
                       </TabsContent>
                     </Tabs>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            
-            {/* Галерея */}
-            <Card className="overflow-hidden shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-medium mb-4">Галерея зала</h3>
-                <div className="relative">
-                  <div className="overflow-hidden rounded-lg aspect-video">
-                    <img 
-                      src={galleryImages[currentImage]} 
-                      alt={`Фото зала ${currentImage + 1}`} 
-                      className="w-full h-full object-cover transition-transform duration-500"
-                    />
-                  </div>
-                  
-                  <button 
-                    onClick={prevImage} 
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full"
-                    aria-label="Предыдущее фото"
-                  >
-                    <ChevronLeft className="h-6 w-6" />
-                  </button>
-                  
-                  <button 
-                    onClick={nextImage} 
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full"
-                    aria-label="Следующее фото"
-                  >
-                    <ChevronRight className="h-6 w-6" />
-                  </button>
-                  
-                  <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
-                    {galleryImages.map((_, index) => (
-                      <button 
-                        key={index}
-                        onClick={() => setCurrentImage(index)}
-                        className={`w-2 h-2 rounded-full ${currentImage === index ? 'bg-white' : 'bg-white/50'}`}
-                        aria-label={`Перейти к фото ${index + 1}`}
-                      />
-                    ))}
                   </div>
                 </div>
               </CardContent>
@@ -249,10 +206,10 @@ const Index = () => {
                     />
                   </div>
                   <p className="text-center text-gray-700 mb-1">
-                    Будем рады видеть вас на нашем празднике!
+                    Возможность посетить мероприятие открыта.
                   </p>
                   <p className="text-center text-gray-700">
-                    Пожалуйста, подтвердите своё присутствие.
+                    Для подтверждения участия заполните форму.
                   </p>
                 </div>
 
@@ -266,7 +223,7 @@ const Index = () => {
                   
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Ваше имя
+                      Имя
                     </label>
                     <Input 
                       id="name" 
@@ -291,7 +248,7 @@ const Index = () => {
                   </div>
                   
                   <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700">
-                    <Calendar className="mr-2 h-4 w-4" /> Подтвердить присутствие
+                    <Calendar className="mr-2 h-4 w-4" /> Подтвердить участие
                   </Button>
                 </form>
               </CardContent>
@@ -302,9 +259,50 @@ const Index = () => {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-medium mb-3">О зале "Сад"</h3>
                   <p className="text-gray-700 mb-4">
-                    Уютный зал с дизайнерским оформлением в стиле сказочного сада. Живые растения, 
-                    декоративное освещение и специальные проекции создают атмосферу волшебного леса.
+                    Зал оформлен в стиле сказочного сада. Живые растения, 
+                    декоративное освещение и специальные проекции создают атмосферу леса.
                   </p>
+                  
+                  {/* Галерея перенесена в правую колонку */}
+                  <div className="mb-4">
+                    <div className="relative">
+                      <div className="overflow-hidden rounded-lg aspect-video">
+                        <img 
+                          src={galleryImages[currentImage]} 
+                          alt={`Фото зала ${currentImage + 1}`} 
+                          className="w-full h-full object-cover transition-transform duration-500"
+                        />
+                      </div>
+                      
+                      <button 
+                        onClick={prevImage} 
+                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full"
+                        aria-label="Предыдущее фото"
+                      >
+                        <ChevronLeft className="h-6 w-6" />
+                      </button>
+                      
+                      <button 
+                        onClick={nextImage} 
+                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full"
+                        aria-label="Следующее фото"
+                      >
+                        <ChevronRight className="h-6 w-6" />
+                      </button>
+                      
+                      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
+                        {galleryImages.map((_, index) => (
+                          <button 
+                            key={index}
+                            onClick={() => setCurrentImage(index)}
+                            className={`w-2 h-2 rounded-full ${currentImage === index ? 'bg-white' : 'bg-white/50'}`}
+                            aria-label={`Перейти к фото ${index + 1}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
                   <div className="grid grid-cols-2 gap-3">
                     <div className="aspect-square rounded-md overflow-hidden">
                       <img 
@@ -328,7 +326,7 @@ const Index = () => {
         </div>
 
         <div className="text-center mt-12 text-gray-600">
-          С нетерпением ждём встречи с вами!
+          До встречи на мероприятии.
         </div>
       </div>
     </div>
