@@ -225,7 +225,7 @@ const Index = () => {
                       
                       <TabsContent value="wishlist" className="space-y-3 mt-3">
                         <p className="text-gray-700 mb-3">
-                          Лучший подарок — грамотный инвестиционный портфель и билеты в горы, поэтому поздравить можно вот сюда:
+                          Лучший подарок — рост hard и soft skills, здоровый сон, время из мешков под глазами, грамотный инвестиционный портфель и билеты в горы, поэтому поздравить можно вот сюда:
                         </p>
                         <a 
                           href="https://www.tinkoff.ru/rm/r_aXFahIcQRA.kXVDrhjCbq/AxM6832821" 
