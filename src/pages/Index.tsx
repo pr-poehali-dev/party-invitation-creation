@@ -30,7 +30,7 @@ const Index = () => {
     <div 
       className="min-h-screen flex flex-col items-center py-10 px-4"
       style={{
-        backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1559310589-2673bfe16970?q=80&w=1470&auto=format&fit=crop')",
+        backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1477322524744-0eece9e79640?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1905&q=80')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -40,12 +40,12 @@ const Index = () => {
       <div className="w-full max-w-4xl">
         {/* Заголовок и подзаголовок */}
         <div className="text-center mb-12">
-          <h1 className="text-6xl font-bold mb-4 text-purple-900 animate-fade-in">Happy fckng B-Day party</h1>
-          <p className="text-2xl text-purple-600 mb-6">Будет весело, но это не точно</p>
+          <h1 className="text-6xl font-bold mb-4 text-blue-900 animate-fade-in">Happy fckng B-Day party</h1>
+          <p className="text-2xl text-blue-600 mb-6">Будет весело, но это не точно</p>
           
           <Separator className="my-6">
             <div className="px-4">
-              <span className="text-purple-500">✦</span>
+              <span className="text-blue-500">✦</span>
             </div>
           </Separator>
         </div>
@@ -58,8 +58,8 @@ const Index = () => {
                 <div className="space-y-6">
                   {/* Дата и время */}
                   <div className="flex items-start space-x-4">
-                    <div className="bg-purple-100 p-2 rounded-full">
-                      <Clock className="h-6 w-6 text-purple-700" />
+                    <div className="bg-blue-100 p-2 rounded-full">
+                      <Clock className="h-6 w-6 text-blue-700" />
                     </div>
                     <div>
                       <h3 className="text-xl font-medium mb-1">Когда</h3>
@@ -70,8 +70,8 @@ const Index = () => {
 
                   {/* Место */}
                   <div className="flex items-start space-x-4">
-                    <div className="bg-purple-100 p-2 rounded-full">
-                      <MapPin className="h-6 w-6 text-purple-700" />
+                    <div className="bg-blue-100 p-2 rounded-full">
+                      <MapPin className="h-6 w-6 text-blue-700" />
                     </div>
                     <div>
                       <h3 className="text-xl font-medium mb-1">Где</h3>
@@ -82,7 +82,7 @@ const Index = () => {
                         href="https://yandex.ru/maps/-/CHfFr0zq" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-purple-600 hover:text-purple-800 text-sm inline-flex items-center mt-1"
+                        className="text-blue-600 hover:text-blue-800 text-sm inline-flex items-center mt-1"
                       >
                         Открыть на карте →
                       </a>
@@ -93,7 +93,7 @@ const Index = () => {
                   {/* Программа */}
                   <div>
                     <h3 className="text-xl font-medium mb-3 flex items-center">
-                      <Calendar className="h-5 w-5 mr-2 text-purple-700" />
+                      <Calendar className="h-5 w-5 mr-2 text-blue-700" />
                       Программа
                     </h3>
                     <div className="ml-7 space-y-4">
@@ -109,7 +109,7 @@ const Index = () => {
                         <div className="min-w-[100px] text-sm text-gray-600">19:00 - 21:00</div>
                         <div className="text-gray-700">
                           <div className="flex items-center mb-1">
-                            <Film className="h-4 w-4 mr-1 text-purple-700" />
+                            <Film className="h-4 w-4 mr-1 text-blue-700" />
                             <span>Просмотр фильма "Конклав"</span>
                           </div>
                           <div className="bg-gray-100 p-3 rounded-md mt-2 text-sm">
@@ -118,7 +118,7 @@ const Index = () => {
                                 href="https://wink.ru/movies/konklav-year-2024" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="text-purple-600 hover:text-purple-800"
+                                className="text-blue-600 hover:text-blue-800"
                               >
                                 "Конклав" (2024)
                               </a>
@@ -140,7 +140,7 @@ const Index = () => {
                   {/* О подарках */}
                   <div>
                     <h3 className="text-xl font-medium mb-3 flex items-center">
-                      <Gift className="h-5 w-5 mr-2 text-purple-700" />
+                      <Gift className="h-5 w-5 mr-2 text-blue-700" />
                       О подарках
                     </h3>
                     
@@ -158,7 +158,7 @@ const Index = () => {
                           href="https://www.tinkoff.ru/rm/r_aXFahIcQRA.kXVDrhjCbq/AxM6832821" 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="inline-block bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md mb-3 transition-colors"
+                          className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md mb-3 transition-colors"
                         >
                           Поздравить тут
                         </a>
@@ -167,7 +167,7 @@ const Index = () => {
                           href="https://followish.io/mywishlist/cvcvvjmgttfirm" 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="text-purple-600 hover:text-purple-800"
+                          className="text-blue-600 hover:text-blue-800"
                         >
                           Посмотреть вишлист →
                         </a>
@@ -198,7 +198,7 @@ const Index = () => {
             <Card className="overflow-hidden shadow-lg">
               <CardContent className="p-6">
                 <div className="flex flex-col items-center mb-6">
-                  <div className="w-32 h-32 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                  <div className="w-32 h-32 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                     <img 
                       src="https://cdn.poehali.dev/files/03c4a1e0-a935-46ef-8009-b82635031cfb.jpg"
                       alt="Постер фильма Конклав" 
@@ -247,7 +247,7 @@ const Index = () => {
                     />
                   </div>
                   
-                  <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700">
+                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
                     <Calendar className="mr-2 h-4 w-4" /> Подтвердить участие
                   </Button>
                 </form>
