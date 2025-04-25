@@ -85,7 +85,7 @@ const Index = () => {
     <div 
       className="min-h-screen flex flex-col items-center py-10 px-4"
       style={{
-        backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1546941792-b25d7ae4c40f?q=80&w=1974&auto=format&fit=crop')",
+        backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1610809027249-86c649feacd5?q=80&w=2070&auto=format&fit=crop')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
