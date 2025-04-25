@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Clock, MapPin, Film, Pizza, Popcorn, Gift, Calendar, Ban, 
-  ChevronLeft, ChevronRight, Check, Shirt
+  ChevronLeft, ChevronRight, Check, Shirt, MessageCircle
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -412,8 +412,19 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="text-center mt-12 text-gray-300 font-light">
-          До встречи на мероприятии.
+        <div className="flex flex-col items-center mt-12">
+          <a 
+            href="https://t.me/xEsseax" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors mb-4"
+          >
+            <MessageCircle className="h-5 w-5 mr-2" />
+            Связаться с организатором
+          </a>
+          <div className="text-gray-300 font-light mt-4">
+            До встречи на мероприятии.
+          </div>
         </div>
       </div>
     </div>
