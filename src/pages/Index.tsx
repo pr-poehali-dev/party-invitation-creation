@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Clock, MapPin, Film, Pizza, Popcorn, Gift, Calendar, Ban, 
-  ChevronLeft, ChevronRight, Check
+  ChevronLeft, ChevronRight, Check, Shirt
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -188,6 +188,24 @@ const Index = () => {
                       <div className="flex items-start">
                         <div className="min-w-[100px] text-sm text-gray-600">21:40 - 22:00</div>
                         <div className="text-gray-700">Обнимаемся, расходимся и следующим утром пытаемся выжить</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Дресс-код */}
+                  <div>
+                    <h3 className="text-xl font-medium mb-3 flex items-center">
+                      <Shirt className="h-5 w-5 mr-2 text-blue-700" />
+                      Дресс-код
+                    </h3>
+                    <div className="ml-7">
+                      <p className="text-gray-700">
+                        Любой. Приходите в том, в чём вам будет комфортно.
+                      </p>
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">Повседневный</span>
+                        <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">Комфортный</span>
+                        <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">На ваш выбор</span>
                       </div>
                     </div>
                   </div>
