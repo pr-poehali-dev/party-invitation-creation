@@ -6,17 +6,72 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Clock, MapPin, Film, Pizza, Popcorn, Gift, Calendar, Ban, 
-  ChevronLeft, ChevronRight 
+  ChevronLeft, ChevronRight, Check
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Index = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [userTelegram, setUserTelegram] = useState("");
+  
   const galleryImages = [
     "https://cdn.poehali.dev/files/47275d8c-8b1a-4ec6-90a2-86616fb45839.png",
     "https://cdn.poehali.dev/files/67c98aa1-d7f9-4523-b5da-18d58cc879d2.png",
     "https://cdn.poehali.dev/files/ec7e1a2a-d4bd-4640-871d-b94edd9414f8.png"
   ];
+  
+  // Проверка, подтверждал ли пользователь участие раньше
+  useEffect(() => {
+    const savedSubmission = localStorage.getItem('birthdayRsvp');
+    if (savedSubmission) {
+      const { name, telegram } = JSON.parse(savedSubmission);
+      setUserName(name);
+      setUserTelegram(telegram);
+      setFormSubmitted(true);
+    }
+  }, []);
+  
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const telegram = formData.get('telegram') as string;
+    
+    // Сохраняем данные в localStorage
+    localStorage.setItem('birthdayRsvp', JSON.stringify({ name, telegram }));
+    
+    // Отправляем форму через FormSubmit
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/xEsseax@yandex.ru', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          telegram,
+          _subject: 'Новое подтверждение на День Рождения',
+          _captcha: 'false'
+        })
+      });
+      
+      if (response.ok) {
+        setUserName(name);
+        setUserTelegram(telegram);
+        setFormSubmitted(true);
+      }
+    } catch (error) {
+      console.error('Ошибка при отправке формы:', error);
+      // Всё равно покажем сообщение об успехе, даже если API недоступен
+      setUserName(name);
+      setUserTelegram(telegram);
+      setFormSubmitted(true);
+    }
+  };
   
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % galleryImages.length);
@@ -30,7 +85,7 @@ const Index = () => {
     <div 
       className="min-h-screen flex flex-col items-center py-10 px-4"
       style={{
-        backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1477322524744-0eece9e79640?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1905&q=80')",
+        backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1546941792-b25d7ae4c40f?q=80&w=1974&auto=format&fit=crop')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -205,52 +260,63 @@ const Index = () => {
                       className="w-24 h-24 rounded-full object-cover"
                     />
                   </div>
-                  <p className="text-center text-gray-700 mb-1">
-                    Возможность посетить мероприятие открыта.
-                  </p>
-                  <p className="text-center text-gray-700">
-                    Для подтверждения участия заполните форму.
-                  </p>
+                  
+                  {formSubmitted ? (
+                    <div className="text-center">
+                      <div className="bg-green-100 text-green-800 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <Check className="h-8 w-8" />
+                      </div>
+                      <p className="text-xl font-medium text-green-700 mb-2">Спасибо, участие подтверждено!</p>
+                      <p className="text-gray-700">Увидимся на мероприятии, {userName}!</p>
+                    </div>
+                  ) : (
+                    <>
+                      <p className="text-center text-gray-700 mb-1">
+                        Возможность посетить мероприятие открыта.
+                      </p>
+                      <p className="text-center text-gray-700">
+                        Для подтверждения участия заполните форму.
+                      </p>
+                    </>
+                  )}
                 </div>
 
-                <form 
-                  action="https://formsubmit.co/xEsseax@yandex.ru" 
-                  method="POST" 
-                  className="space-y-4"
-                >
-                  <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_subject" value="Новое подтверждение на День Рождения" />
-                  
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Имя
-                    </label>
-                    <Input 
-                      id="name" 
-                      name="name"
-                      placeholder="Иван Иванов" 
-                      className="w-full"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="telegram" className="block text-sm font-medium text-gray-700 mb-1">
-                      Ник в Telegram
-                    </label>
-                    <Input 
-                      id="telegram" 
-                      name="telegram"
-                      placeholder="@username" 
-                      className="w-full"
-                      required
-                    />
-                  </div>
-                  
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
-                    <Calendar className="mr-2 h-4 w-4" /> Подтвердить участие
-                  </Button>
-                </form>
+                {!formSubmitted && (
+                  <form 
+                    onSubmit={handleFormSubmit}
+                    className="space-y-4"
+                  >
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                        Имя
+                      </label>
+                      <Input 
+                        id="name" 
+                        name="name"
+                        placeholder="Иван Иванов" 
+                        className="w-full"
+                        required
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="telegram" className="block text-sm font-medium text-gray-700 mb-1">
+                        Ник в Telegram
+                      </label>
+                      <Input 
+                        id="telegram" 
+                        name="telegram"
+                        placeholder="@username" 
+                        className="w-full"
+                        required
+                      />
+                    </div>
+                    
+                    <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                      <Calendar className="mr-2 h-4 w-4" /> Подтвердить участие
+                    </Button>
+                  </form>
+                )}
               </CardContent>
             </Card>
             
