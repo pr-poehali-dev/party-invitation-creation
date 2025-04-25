@@ -132,7 +132,7 @@ const Index = () => {
                       </div>
                       <div className="flex items-start">
                         <div className="min-w-[100px] text-sm text-gray-600">21:40 - 22:00</div>
-                        <div className="text-gray-700">Обнимашки, расходимся и попытки выжить следующим утром</div>
+                        <div className="text-gray-700">Обнимаемся, расходимся и следующим утром пытаемся выжить</div>
                       </div>
                     </div>
                   </div>
