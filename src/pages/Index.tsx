@@ -118,7 +118,7 @@ const Index = () => {
                     </div>
                     <div>
                       <h3 className="text-xl font-medium mb-1">Когда</h3>
-                      <p className="text-gray-700">19 мая, воскресенье</p>
+                      <p className="text-gray-700">18 мая, воскресенье</p>
                       <p className="text-gray-700">с 18:20 до 22:00</p>
                     </div>
                   </div>
