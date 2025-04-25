@@ -391,7 +391,7 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="text-center mt-12 text-blue-800 font-medium">
+        <div className="text-center mt-12 text-blue-300 font-medium text-lg">
           До встречи на мероприятии.
         </div>
       </div>
